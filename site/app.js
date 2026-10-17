@@ -4,9 +4,18 @@
 //   #/s/<code>/<id>    one announcement
 import { createStore } from "./store.js";
 import { cleanHtml } from "./sanitize.js";
+import { idbSet } from "./idb.js";
 
 const DATA = "./data/";
-const store = createStore();
+const BG_KEY = "snql:bg";
+const local = createStore();
+// The service worker reads follows and read marks from IndexedDB, so mirror every change there.
+const store = {
+  ...local,
+  follow(code) { local.follow(code); idbSet("followed", local.followed()); },
+  unfollow(code) { local.unfollow(code); idbSet("followed", local.followed()); },
+  markRead(code, ids) { local.markRead(code, ids); idbSet(`read:${code}`, [...local.readIds(code)]); },
+};
 const view = document.getElementById("view");
 const titleEl = document.getElementById("title");
 const subtitleEl = document.getElementById("subtitle");
@@ -212,8 +221,51 @@ async function renderPost(code, id) {
 
 // ---- settings (filled in by the PWA layer) -----------------------------------
 
+const canBackground =
+  "serviceWorker" in navigator && typeof ServiceWorkerRegistration !== "undefined" && "periodicSync" in ServiceWorkerRegistration.prototype;
+
+function bgEnabled() {
+  try {
+    return localStorage.getItem(BG_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+async function setBackground(on) {
+  const reg = await navigator.serviceWorker.ready;
+  if (on) {
+    if ((await Notification.requestPermission()) !== "granted") return false;
+    try {
+      await reg.periodicSync.register("check-news", { minInterval: 6 * 60 * 60 * 1000 });
+    } catch {
+      return false; // the browser only allows it for an installed app
+    }
+  } else {
+    await reg.periodicSync.unregister("check-news");
+  }
+  try {
+    localStorage.setItem(BG_KEY, on ? "1" : "0");
+  } catch {
+    // remembered by the browser's registration anyway
+  }
+  return true;
+}
+
 function settingsSection() {
-  return h("section", { class: "settings", id: "settings" });
+  if (!canBackground) {
+    return h("section", { class: "settings" }, h("p", { class: "note" }, "這個瀏覽器不支援背景檢查(iPhone 也不支援),請打開 App 查看新公告。"));
+  }
+  const box = h("input", { type: "checkbox", id: "bg", checked: bgEnabled() });
+  const msg = h("p", { class: "note" }, "開啟後，手機會不定時檢查追蹤學校的新公告並發通知，可能延遲數小時。需要先把 App 加到主畫面。");
+  box.addEventListener("change", async () => {
+    const ok = await setBackground(box.checked);
+    if (!ok) {
+      box.checked = false;
+      msg.textContent = "無法開啟：請允許通知，並先把 App 加到主畫面後再試一次。";
+    }
+  });
+  return h("section", { class: "settings" }, h("h2", {}, "設定"), h("label", { for: "bg" }, box, "背景檢查新公告"), msg);
 }
 
 // ---- router -----------------------------------------------------------------
@@ -229,6 +281,7 @@ async function route() {
   }
 }
 
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js", { type: "module" }).catch(() => {});
 window.addEventListener("hashchange", route);
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") {
