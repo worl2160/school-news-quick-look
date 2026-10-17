@@ -42,6 +42,13 @@ export function createHttp({ fetchImpl = fetch, minGapMs = 1000, timeoutMs = 200
     getText: async (url) => (await request(url, { method: "GET", headers: {} })).text,
     /** Like getText, plus the URL the page was finally served from after redirects. */
     getPage: (url) => request(url, { method: "GET", headers: {} }),
+    /** POST `fields` as an HTML form and give the reply text. */
+    postForm: async (url, fields) =>
+      (await request(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(Object.entries(fields).map(([k, v]) => [k, String(v)])).toString(),
+      })).text,
     async postJson(url, body) {
       const { text } = await request(url, {
         method: "POST",

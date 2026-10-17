@@ -942,9 +942,11 @@
    "district": "萬華區",
    "type": "public",
    "url": "https://www.syps.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "php-xoops",
+   "params": {
+    "board_name": "雙園公告區"
+   },
+   "status": "ok"
   },
   {
    "code": "373603",

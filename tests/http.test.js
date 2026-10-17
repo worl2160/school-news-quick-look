@@ -72,3 +72,16 @@ test("network failure names the underlying cause", async () => {
     message: "https://x.test/a: fetch failed (ECONNREFUSED: connect ECONNREFUSED 1.2.3.4:443)",
   });
 });
+
+test("postForm sends a form body with the fixed User-Agent and gives the reply text", async () => {
+  const f = fakeFetch(() => new Response("<table></table>", { status: 200 }));
+  const http = createHttp({ fetchImpl: f.impl, sleep: async () => {} });
+  const text = await http.postForm("https://a.tw/list.php", { num: 50, keyword: "" });
+  const h = new Headers(f.calls[0].init.headers);
+  assert.equal(text, "<table></table>");
+  assert.equal(f.calls[0].init.method, "POST");
+  assert.equal(h.get("content-type"), "application/x-www-form-urlencoded");
+  assert.equal(h.get("user-agent"), USER_AGENT);
+  assert.equal(h.get("cookie"), null);
+  assert.equal(f.calls[0].init.body, "num=50&keyword=");
+});
