@@ -152,22 +152,51 @@ test("loadPublished gives null when the live index or a listed file is missing",
   assert.equal(await loadPublished("https://x.github.io/app/data", half), null);
 });
 
-test("loadPublished retries a file once and reports why it gave up", async () => {
-  const tries = new Map();
-  const http = {
+function liveHttp(missing, tries = new Map()) {
+  const codes = ["A", "B", "C", "D", "E"];
+  return {
     getText: async (url) => {
       const name = url.split("/").pop();
       tries.set(name, (tries.get(name) || 0) + 1);
-      if (name === "index.json") return JSON.stringify({ schools: [{ code: "A", status: "ok" }, { code: "B", status: "ok" }] });
-      if (name === "A.json" && tries.get(name) === 1) throw new Error("socket hang up");
-      if (name === "B.json") throw new Error("HTTP 503");
-      return "{}";
+      if (name === "index.json") {
+        return JSON.stringify({
+          schema: 1,
+          schools: [
+            ...codes.map((code) => ({ code, name: code + "國小", status: "ok", board_name: "最新消息", latest_published_at: "2026-10-01T08:00:00+08:00", last_success_at: "2026-10-17T09:05:00+08:00" })),
+            { code: "U", status: "unsupported" },
+          ],
+        });
+      }
+      if (missing.includes(name)) throw new Error("HTTP 503");
+      return JSON.stringify({ schema: 1, items: [{ id: name }] });
     },
   };
+}
+
+test("loadPublished reads each file once and keeps the live data when a few are missing", async () => {
+  const tries = new Map();
   const reasons = [];
-  const got = await loadPublished("https://x.github.io/app/data", http, (m) => reasons.push(m));
-  assert.equal(got, null);
-  assert.equal(tries.get("A.json"), 2);
-  assert.equal(tries.get("B.json"), 2);
+  const got = await loadPublished("https://x.github.io/app/data", liveHttp(["B.json"], tries), (m) => reasons.push(m), [
+    { code: "B", name: "B國小", url: "https://b.example" },
+  ]);
+  assert.equal(tries.get("B.json"), 1);
   assert.deepEqual(reasons, ["B.json: HTTP 503"]);
+  assert.deepEqual([...got.files.keys()], ["A", "B", "C", "D", "E"]);
+  assert.deepEqual(got.missing, ["B"]);
+  const b = got.files.get("B");
+  assert.deepEqual(b.items, []);
+  assert.equal(b.school.url, "https://b.example");
+  assert.equal(b.board.name, "最新消息");
+  assert.equal(b.last_success_at, "2026-10-17T09:05:00+08:00");
+  assert.ok(b.error);
+  const entry = got.index.schools.find((s) => s.code === "B");
+  assert.equal(entry.status, "stale");
+  assert.equal(entry.latest_published_at, null);
+  assert.equal(got.index.schools.find((s) => s.code === "A").status, "ok");
+});
+
+test("loadPublished keeps the live data at 80% missing and gives null above it", async () => {
+  const four = ["A.json", "B.json", "C.json", "D.json"];
+  assert.ok(await loadPublished("https://x.github.io/app/data", liveHttp(four)));
+  assert.equal(await loadPublished("https://x.github.io/app/data", liveHttp([...four, "E.json"])), null);
 });

@@ -1,6 +1,7 @@
 // CLI: node src/fetch/main.js --out <dir> [--base <published data URL>] [--only code,code] [--schools <file>] [--reuse]
-// --reuse copies the live data from --base unchanged (no school is contacted); if it cannot
-// be read completely, the schools are fetched as usual.
+// --reuse copies the live data from --base (no school is contacted). A school whose live file
+// cannot be read is deployed as stale with no items; if the index or more than 80% of the files
+// cannot be read, the schools are fetched as usual.
 import { readFile, appendFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import { createHttp } from "./http.js";
@@ -21,21 +22,6 @@ if (!values.out) {
   process.exit(2);
 }
 
-if (values.reuse && values.base) {
-  const why = [];
-  const live = await loadPublished(values.base, createHttp({ minGapMs: 0 }), (m) => why.push(m));
-  if (live) {
-    await writeOutput(values.out, live);
-    const line = `reused live data: ${live.files.size} school files, generated ${live.index.generated_at}`;
-    console.log(line);
-    if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, line + "\n");
-    process.exit(0);
-  }
-  const line = `live data incomplete or missing (${why.join("; ") || "unknown"}); fetching the schools instead`;
-  console.log(line);
-  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, line + "\n");
-}
-
 let schools;
 try {
   schools = JSON.parse(await readFile(values.schools, "utf8")).schools;
@@ -43,6 +29,23 @@ try {
   console.error(`cannot read school list ${values.schools}: ${e.message}`);
   process.exit(2);
 }
+
+if (values.reuse && values.base) {
+  const why = [];
+  const live = await loadPublished(values.base, createHttp({ minGapMs: 0 }), (m) => why.push(m), schools);
+  if (live) {
+    await writeOutput(values.out, live);
+    const lines = [`reused live data: ${live.files.size} school files, generated ${live.index.generated_at}`];
+    if (live.missing.length) lines.push(`deployed as stale with no items (${live.missing.join(", ")}): ${why.join("; ")}`);
+    console.log(lines.join("\n"));
+    if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+    process.exit(0);
+  }
+  const line = `live data missing (${why.join("; ") || "unknown"}); fetching the schools instead`;
+  console.log(line);
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, line + "\n");
+}
+
 if (values.only) {
   const only = new Set(values.only.split(","));
   schools = schools.filter((s) => only.has(s.code));
