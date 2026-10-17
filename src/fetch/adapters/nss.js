@@ -57,3 +57,40 @@ export function mergeItems(topRows, regularRows, ctx, now) {
   regular.sort(byNewest);
   return [...pins, ...regular.slice(0, REGULAR_KEEP)];
 }
+
+export class AdapterError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AdapterError";
+  }
+}
+
+const VISITOR_MATCH = { released: true, status: "passed", show: true };
+const NOW_BETWEEN = { max: "dtime", min: "stime", value: "now" };
+const SORT = { stime: -1, ctime: -1 };
+
+async function find(http, url, option) {
+  const reply = await http.postJson(url, { option, vector: "private", static: false });
+  if (!reply || reply.error !== 0) throw new AdapterError("nss error: " + (reply && reply.msg));
+  return (reply.data && reply.data.result) || [];
+}
+
+/** Read one school's chosen board: the pinned rows, then the 40 newest visible rows. */
+export async function fetchNss(school, http, now) {
+  const { upath, mid, sid } = school.params;
+  const ctx = { host: school.url, upath, mid, sid };
+  const url = `${school.url}/nss/site/${upath}/storage/${mid}/${sid}/find`;
+  const top = await find(http, url, {
+    number: 999,
+    page: 1,
+    sort: SORT,
+    query: [{ between: NOW_BETWEEN, match: { ...VISITOR_MATCH, top: true } }],
+  });
+  const regular = await find(http, url, {
+    number: 40,
+    page: 1,
+    sort: SORT,
+    query: [{ between: NOW_BETWEEN, match: VISITOR_MATCH }],
+  });
+  return mergeItems(top, regular, ctx, now);
+}
