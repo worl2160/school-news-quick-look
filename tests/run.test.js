@@ -120,3 +120,34 @@ test("schools left when the run deadline passes keep old data and are marked sta
   assert.deepEqual(c.items, old.items);
   assert.equal(index.schools.find((s) => s.code === "C").status, "stale");
 });
+
+import { loadPublished } from "../src/fetch/run.js";
+
+test("loadPublished returns the live index and every school file it lists", async () => {
+  const live = {
+    "index.json": { schema: 1, schools: [{ code: "A", status: "ok" }, { code: "U", status: "unsupported" }] },
+    "A.json": { schema: 1, items: [] },
+  };
+  const http = {
+    getText: async (url) => {
+      const name = url.split("/").pop();
+      if (!live[name]) throw new Error("HTTP 404");
+      return JSON.stringify(live[name]);
+    },
+  };
+  const got = await loadPublished("https://x.github.io/app/data", http);
+  assert.deepEqual(got.index, live["index.json"]);
+  assert.deepEqual([...got.files.keys()], ["A"]);
+});
+
+test("loadPublished gives null when the live index or a listed file is missing", async () => {
+  const http = { getText: async () => { throw new Error("HTTP 404"); } };
+  assert.equal(await loadPublished("https://x.github.io/app/data", http), null);
+  const half = {
+    getText: async (url) => {
+      if (url.endsWith("index.json")) return JSON.stringify({ schools: [{ code: "A", status: "ok" }] });
+      throw new Error("HTTP 404");
+    },
+  };
+  assert.equal(await loadPublished("https://x.github.io/app/data", half), null);
+});

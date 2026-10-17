@@ -80,3 +80,27 @@ export async function writeOutput(dir, { index, files }) {
   await writeFile(join(dir, "index.json"), JSON.stringify(index));
   for (const [code, file] of files) await writeFile(join(dir, `${code}.json`), JSON.stringify(file));
 }
+
+/**
+ * The live site's data as it is: index plus every school file it lists (unsupported
+ * schools have none). Null when the index or any listed file cannot be read, so the
+ * caller fetches instead of deploying a site with holes.
+ */
+export async function loadPublished(baseUrl, http) {
+  let index;
+  try {
+    index = JSON.parse(await http.getText(`${baseUrl}/index.json`));
+  } catch {
+    return null;
+  }
+  const files = new Map();
+  for (const s of index.schools || []) {
+    if (s.status === "unsupported") continue;
+    try {
+      files.set(s.code, JSON.parse(await http.getText(`${baseUrl}/${s.code}.json`)));
+    } catch {
+      return null;
+    }
+  }
+  return { index, files };
+}

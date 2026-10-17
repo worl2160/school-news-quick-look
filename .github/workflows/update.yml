@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
   pages: write
   id-token: write
 
@@ -30,8 +31,25 @@ jobs:
       - run: npm ci
       - run: cp -r site out
       - run: sed -i "s/__BUILD__/${GITHUB_SHA}/" out/sw.js
-      - name: Fetch every school
-        run: node src/fetch/main.js --out out/data --base https://worl2160.github.io/school-news-quick-look/data
+      # Schedule and manual runs always fetch. A push to main (a merged PR) keeps the live
+      # data unless that PR carries the `refetch` label.
+      - name: Decide whether to fetch
+        id: mode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mode=fetch
+          if [ "${{ github.event_name }}" = "push" ]; then
+            labels=$(gh api "repos/${{ github.repository }}/commits/${GITHUB_SHA}/pulls" --jq '.[].labels[].name' || true)
+            if ! printf '%s\n' "$labels" | grep -qx refetch; then mode=reuse; fi
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "data mode: $mode" >> "$GITHUB_STEP_SUMMARY"
+      - name: Fetch every school, or reuse the live data
+        run: >
+          node src/fetch/main.js --out out/data
+          --base https://worl2160.github.io/school-news-quick-look/data
+          ${{ steps.mode.outputs.mode == 'reuse' && '--reuse' || '' }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
