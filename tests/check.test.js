@@ -36,3 +36,12 @@ test("findNews leaves out posts already notified and returns the ids it counted"
   });
   assert.deepEqual(got, [{ code: "313601", name: "松山國小", count: 1, ids: ["c"] }]);
 });
+
+test("a school never opened on this phone is not reported", async () => {
+  const got = await findNews({
+    followed: ["313601"],
+    readIds: async () => null,
+    fetchJson: async () => ({ school: { name: "松山國小" }, items: [{ id: "a" }] }),
+  });
+  assert.deepEqual(got, []);
+});

@@ -6,6 +6,7 @@ export async function findNews({ followed, readIds, notifiedIds = async () => ne
     try {
       const f = await fetchJson(`${code}.json`);
       const read = await readIds(code);
+      if (!read) continue; // never opened on this phone: no baseline, nothing is "new"
       const told = await notifiedIds(code);
       const ids = f.items.filter((i) => !read.has(i.id) && !told.has(i.id)).map((i) => i.id);
       if (ids.length) found.push({ code, name: f.school.name, count: ids.length, ids });

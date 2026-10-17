@@ -44,7 +44,10 @@ self.addEventListener("periodicsync", (e) => {
     (async () => {
       const found = await findNews({
         followed: (await idbGet("followed")) || [],
-        readIds: async (code) => new Set((await idbGet(`read:${code}`)) || []),
+        readIds: async (code) => {
+          const ids = await idbGet(`read:${code}`);
+          return ids ? new Set(ids) : null;
+        },
         notifiedIds: async (code) => new Set((await idbGet(`notified:${code}`)) || []),
         fetchJson: async (path) => {
           const res = await fetch(new URL(`data/${path}`, self.registration.scope), { cache: "no-cache" });
