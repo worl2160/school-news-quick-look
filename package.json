@@ -1,0 +1,11 @@
+{
+  "name": "school-news-quick-look",
+  "version": "0.1.0",
+  "private": true,
+  "description": "校訊即時通：臺北市國小公告的非官方手機網頁 App",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}
