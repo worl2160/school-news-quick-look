@@ -553,9 +553,12 @@
    "district": "中山區",
    "type": "public",
    "url": "https://www.djes.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "wp-netview",
+   "params": {
+    "list_path": "/category/news/",
+    "board_name": "校園公告"
+   },
+   "status": "ok"
   },
   {
    "code": "343607",
@@ -596,9 +599,12 @@
    "district": "中山區",
    "type": "public",
    "url": "https://www.wses.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "wp-netview",
+   "params": {
+    "list_path": "/category/news/",
+    "board_name": "校園公告"
+   },
+   "status": "ok"
   },
   {
    "code": "343610",

@@ -47,7 +47,7 @@ export async function runAll({ schools, previous, adapters, http, now, deadline 
     let file;
     try {
       if (clock() >= deadline) throw new Error("skipped: run deadline");
-      const items = await adapter(s, http, now);
+      const items = await adapter(s, http, now, old ? old.items || [] : []);
       file = { items, last_success_at: nowIso, error: null };
     } catch (e) {
       file = {
