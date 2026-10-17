@@ -26,4 +26,4 @@ node src/fetch/main.js --out out/data --only 313601       # 抓一所學校試�
 node src/schools/build.js --csv <教育部名錄 CSV> --out schools/taipei.json   # 重建學校名單(每學年一次)
 ```
 
-排程寫在 `.github/workflows/update.yml`。排程與手動執行一律重新讀取學校網站;合併 PR 時預設沿用線上現有資料，只有 PR 加上 `refetch` 標籤才會重新讀取。GitHub 會停用 60 天沒有活動的公開 repo 的排程，請定期有 commit 或手動執行。
+排程寫在 `.github/workflows/update.yml`。排程與手動執行一律重新讀取學校網站;合併 PR 時預設沿用線上現有資料，只有 PR 加上 `refetch` 標籤才會重新讀取。沿用時個別檔案讀不到不重抓，該校先標為暫時無資料，等下次排程補回；超過 80% 讀不到才改為重新讀取。GitHub 會停用 60 天沒有活動的公開 repo 的排程，請定期有 commit 或手動執行。

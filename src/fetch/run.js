@@ -81,26 +81,53 @@ export async function writeOutput(dir, { index, files }) {
   for (const [code, file] of files) await writeFile(join(dir, `${code}.json`), JSON.stringify(file));
 }
 
+/** Above this share of unreadable school files, reuse gives up and the schools are fetched. */
+export const MAX_MISSING_SHARE = 0.8;
+
 /**
  * The live site's data as it is: index plus every school file it lists (unsupported
- * schools have none). Null when the index or any listed file cannot be read, so the
- * caller fetches instead of deploying a site with holes.
+ * schools have none). Each file is read once. A school whose file cannot be read is kept
+ * in the index as stale with an empty placeholder file (its url from `schools`), so the
+ * next scheduled run fills it in. Null when the index cannot be read or more than
+ * MAX_MISSING_SHARE of the files are missing, so the caller fetches instead; `log` hears
+ * which file and why.
  */
-export async function loadPublished(baseUrl, http) {
-  let index;
-  try {
-    index = JSON.parse(await http.getText(`${baseUrl}/index.json`));
-  } catch {
-    return null;
-  }
-  const files = new Map();
-  for (const s of index.schools || []) {
-    if (s.status === "unsupported") continue;
+export async function loadPublished(baseUrl, http, log = () => {}, schools = []) {
+  const read = async (name) => {
     try {
-      files.set(s.code, JSON.parse(await http.getText(`${baseUrl}/${s.code}.json`)));
-    } catch {
-      return null;
+      return JSON.parse(await http.getText(`${baseUrl}/${name}`));
+    } catch (e) {
+      log(`${name}: ${e.message}`);
+      return undefined;
     }
+  };
+  const index = await read("index.json");
+  if (!index) return null;
+  const urls = new Map(schools.map((s) => [s.code, s.url]));
+  const listed = (index.schools || []).filter((s) => s.status !== "unsupported");
+  const files = new Map();
+  const missing = [];
+  for (const s of listed) {
+    const file = await read(`${s.code}.json`);
+    if (file) {
+      files.set(s.code, file);
+      continue;
+    }
+    missing.push(s.code);
+    files.set(s.code, {
+      schema: 1,
+      school: { code: s.code, name: s.name, url: urls.get(s.code) || null },
+      board: { name: s.board_name || null, url: urls.get(s.code) || null },
+      last_success_at: s.last_success_at || null,
+      last_attempt_at: index.generated_at || null,
+      error: "live data file unreadable at deploy",
+      items: [],
+    });
   }
-  return { index, files };
+  if (missing.length > listed.length * MAX_MISSING_SHARE) return null;
+  const gone = new Set(missing);
+  const entries = (index.schools || []).map((s) =>
+    gone.has(s.code) ? { ...s, status: "stale", latest_published_at: null } : s,
+  );
+  return { index: { ...index, schools: entries }, files, missing };
 }
