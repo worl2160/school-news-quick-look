@@ -80,14 +80,10 @@ function failed(e) {
 
 // ---- screen 1: schools ------------------------------------------------------
 
-async function renderHome() {
-  setHeader("校訊即時通", "臺北市國小・非學校官方 App", null);
-  const index = await loadIndex();
-  const byCode = new Map(index.schools.map((s) => [s.code, s]));
+function followedSection(byCode) {
   const followed = store.followed().filter((c) => byCode.has(c));
-
   const followedList = h("ul", { class: "cards" });
-  const followedSection = h(
+  const section = h(
     "section",
     {},
     h("h2", {}, "我追蹤的學校"),
@@ -110,6 +106,28 @@ async function renderHome() {
         .catch(() => badge.replaceWith(h("span", { class: "note" }, "讀取失敗")));
     }
   }
+  return section;
+}
+
+async function renderHome() {
+  setHeader("校訊即時通", "臺北市國小・非學校官方 App", null);
+  const index = await loadIndex();
+  const byCode = new Map(index.schools.map((s) => [s.code, s]));
+  let followedBox = followedSection(byCode);
+
+  // Toggle in place: rebuild only the followed list and keep the tapped button where it was.
+  const toggle = (s, btn) => {
+    const on = !store.followed().includes(s.code);
+    on ? store.follow(s.code) : store.unfollow(s.code);
+    btn.setAttribute("aria-pressed", String(on));
+    btn.setAttribute("aria-label", `${on ? "取消追蹤" : "追蹤"}${s.name}`);
+    btn.textContent = on ? "已追蹤" : "追蹤";
+    const before = btn.getBoundingClientRect().top;
+    const fresh = followedSection(byCode);
+    followedBox.replaceWith(fresh);
+    followedBox = fresh;
+    window.scrollBy(0, btn.getBoundingClientRect().top - before);
+  };
 
   const districts = [...new Set(index.schools.map((s) => s.district).filter(Boolean))].sort();
   const input = h("input", { id: "q", type: "search", placeholder: "輸入校名，例如 松山", value: filter.text, autocomplete: "off" });
@@ -145,7 +163,7 @@ async function renderHome() {
                 type: "button",
                 "aria-pressed": String(on),
                 "aria-label": `${on ? "取消追蹤" : "追蹤"}${s.name}`,
-                onclick: () => { on ? store.unfollow(s.code) : store.follow(s.code); renderHome(); },
+                onclick: (e) => toggle(s, e.currentTarget),
               }, on ? "已追蹤" : "追蹤");
         return h("li", {}, label, right);
       }),
@@ -156,7 +174,7 @@ async function renderHome() {
   drawRows();
 
   show(
-    followedSection,
+    followedBox,
     h("section", { class: "search" }, h("label", { for: "q" }, "搜尋學校"), input, chips),
     h("section", {}, count, rows),
     settingsSection(),
