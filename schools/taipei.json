@@ -917,9 +917,12 @@
    "district": "萬華區",
    "type": "private",
    "url": "https://www.kjes.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "php-rpage",
+   "params": {
+    "list_path": "/p/403-1000-126",
+    "board_name": "首頁公告"
+   },
+   "status": "ok"
   },
   {
    "code": "373601",
@@ -1310,9 +1313,12 @@
    "district": "文山區",
    "type": "public",
    "url": "https://www.bjps.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "php-rpage",
+   "params": {
+    "list_path": "/p/403-1000-13",
+    "board_name": "學校公告"
+   },
+   "status": "ok"
   },
   {
    "code": "383612",
