@@ -1094,9 +1094,12 @@
    "district": "文山區",
    "type": "public",
    "url": "https://www.es.nccu.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "wp-latest-posts",
+   "params": {
+    "heading": "一般消息",
+    "board_name": "一般消息"
+   },
+   "status": "ok"
   },
   {
    "code": "381602",
