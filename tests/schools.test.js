@@ -87,3 +87,11 @@ test("chooseBoard keeps the top-ranked board when none can be read", async () =>
   const got = await chooseBoard([{ sid: "a" }, { sid: "b" }], async () => { throw new Error("x"); }, new Date());
   assert.equal(got.sid, "a");
 });
+
+test("every tag in the school list has a text in tags.json", () => {
+  const texts = JSON.parse(read("../schools/tags.json"));
+  const used = JSON.parse(read("../schools/taipei.json")).schools.flatMap((s) => s.tags || []);
+  for (const t of used) assert.equal(typeof texts[t], "string", `tag ${t} has no text`);
+  assert.equal(texts.limit, "此校網站因規範限制，只能獲取受限的內容；請點進去到學校官網查看。");
+  assert.ok(used.includes("limit"));
+});

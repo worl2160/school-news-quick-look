@@ -50,3 +50,18 @@ test("a newly followed school shows no new-post badge", async () => {
   assert.equal(document.querySelectorAll(".badge").length, 0);
   assert.ok(document.getElementById("view").textContent.includes("已讀"));
 });
+
+test("a school's tag notes are shown under its announcement list", async () => {
+  const text = "此校網站因規範限制，只能獲取受限的內容；請點進去到學校官網查看。";
+  const tagged = { ...school, tags: [{ name: "limit", text }] };
+  const { document } = await renderApp("#/s/313601", { ...files, "313601.json": tagged });
+  const notes = [...document.querySelectorAll(".tag-note")];
+  assert.deepEqual(notes.map((n) => n.textContent), [text]);
+  const cards = document.querySelector(".cards");
+  assert.ok(cards.compareDocumentPosition(notes[0]) & 4, "the note comes after the list");
+});
+
+test("a school without tags shows no tag notes", async () => {
+  const { document } = await renderApp("#/s/313601", files);
+  assert.equal(document.querySelectorAll(".tag-note").length, 0);
+});

@@ -71,6 +71,20 @@ test("each adapter gets that school's previously published items", async () => {
   assert.deepEqual(got, { A: old.items, B: [] });
 });
 
+test("a school's tags go into its file with their texts", async () => {
+  const fake = async () => [];
+  const { files } = await runAll({
+    schools: [{ ...school("A"), tags: ["limit"] }, school("B")],
+    previous: new Map(),
+    adapters: { fake },
+    http: {},
+    now: NOW,
+    tagTexts: { limit: "受限說明" },
+  });
+  assert.deepEqual(files.get("A").tags, [{ name: "limit", text: "受限說明" }]);
+  assert.deepEqual(files.get("B").tags, []);
+});
+
 test("unsupported schools are listed but not fetched", async () => {
   let called = 0;
   const { index, files } = await runAll({
@@ -210,4 +224,16 @@ test("loadPublished keeps the live data at 80% missing and gives null above it",
   const four = ["A.json", "B.json", "C.json", "D.json"];
   assert.ok(await loadPublished("https://x.github.io/app/data", liveHttp(four)));
   assert.equal(await loadPublished("https://x.github.io/app/data", liveHttp([...four, "E.json"])), null);
+});
+
+import { applyTags } from "../src/fetch/run.js";
+
+test("applyTags sets each reused file's tags from the current school list", () => {
+  const files = new Map([
+    ["A", { items: [], tags: [{ name: "old", text: "舊" }] }],
+    ["B", { items: [] }],
+  ]);
+  applyTags(files, [{ ...school("A") }, { ...school("B"), tags: ["limit"] }], { limit: "受限說明" });
+  assert.deepEqual(files.get("A").tags, []);
+  assert.deepEqual(files.get("B").tags, [{ name: "limit", text: "受限說明" }]);
 });

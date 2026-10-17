@@ -25,7 +25,7 @@ function latest(items) {
  * Fetch every school in order. Once `clock()` passes `deadline`, the remaining schools are
  * not fetched: they keep their previous data and are marked stale, so the run still deploys.
  */
-export async function runAll({ schools, previous, adapters, http, now, deadline = Infinity, clock = Date.now }) {
+export async function runAll({ schools, previous, adapters, http, now, deadline = Infinity, clock = Date.now, tagTexts = {} }) {
   const nowIso = toTaipeiIso(now.getTime());
   const files = new Map();
   const entries = [];
@@ -72,7 +72,19 @@ export async function runAll({ schools, previous, adapters, http, now, deadline 
       last_success_at: file.last_success_at,
     });
   }
+  applyTags(files, schools, tagTexts);
   return { index: { schema: 1, generated_at: nowIso, schools: entries }, files };
+}
+
+/**
+ * Give each school file the tags its school has in the school list, with their texts.
+ * Tags are repo data, so reused live files get them too and a merge shows them at once.
+ */
+export function applyTags(files, schools, tagTexts) {
+  for (const s of schools) {
+    const file = files.get(s.code);
+    if (file) file.tags = (s.tags || []).map((name) => ({ name, text: tagTexts[name] || "" }));
+  }
 }
 
 export async function writeOutput(dir, { index, files }) {
