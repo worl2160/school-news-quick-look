@@ -8,6 +8,8 @@
 - **網站**:GitHub Pages 提供 App 與資料，不另外架伺服器、不需登入、不收集個資、不做分析追蹤。
 - **原文**:每則公告都附學校官網的原文連結，附件直接連到學校的原檔。
 
+網址:https://worl2160.github.io/school-news-quick-look/
+
 學校若希望不被收錄，請開 issue,我們會從名單移除。
 
 ## 開發
@@ -18,3 +20,10 @@
 npm ci
 npm test
 ```
+
+```bash
+node src/fetch/main.js --out out/data --only 313601       # 抓一所學校試跑
+node src/schools/build.js --csv <教育部名錄 CSV> --out schools/taipei.json   # 重建學校名單(每學年一次)
+```
+
+排程寫在 `.github/workflows/update.yml`。GitHub 會停用 60 天沒有活動的公開 repo 的排程，請定期有 commit 或手動執行。
