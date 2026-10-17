@@ -632,9 +632,11 @@
    "district": "中山區",
    "type": "public",
    "url": "https://www.bjes.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "py-yascms",
+   "params": {
+    "board_name": "最新消息"
+   },
+   "status": "ok"
   },
   {
    "code": "353601",
