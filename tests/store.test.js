@@ -39,3 +39,19 @@ test("follow and unfollow persist across store instances", () => {
   createStore(storage).unfollow("313601");
   assert.deepEqual(createStore(storage).followed(), ["333607"]);
 });
+
+test("store starts when reading localStorage itself throws", () => {
+  const had = Object.getOwnPropertyDescriptor(globalThis, "localStorage");
+  Object.defineProperty(globalThis, "localStorage", {
+    configurable: true,
+    get() { throw new Error("SecurityError"); },
+  });
+  try {
+    const s = createStore();
+    s.follow("313601");
+    assert.deepEqual(s.followed(), ["313601"]);
+  } finally {
+    if (had) Object.defineProperty(globalThis, "localStorage", had);
+    else delete globalThis.localStorage;
+  }
+});

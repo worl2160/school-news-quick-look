@@ -5,7 +5,15 @@ const FOLLOWED = "snql:followed";
 const READ = (code) => `snql:read:${code}`;
 const READ_KEEP = 500;
 
-export function createStore(storage = globalThis.localStorage) {
+export function createStore(given) {
+  let storage = given;
+  if (storage === undefined) {
+    try {
+      storage = globalThis.localStorage; // the getter itself throws when site data is blocked
+    } catch {
+      storage = null;
+    }
+  }
   const memory = new Map();
   const load = (key, fallback) => {
     try {
