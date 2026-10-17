@@ -60,3 +60,15 @@ test("getPage reports the final URL after redirects", async () => {
   assert.equal(page.url, "https://www.snes.tp.edu.tw/nss/p/index");
   assert.equal(page.text, "<html></html>");
 });
+
+test("network failure names the underlying cause", async () => {
+  const cause = Object.assign(new Error("connect ECONNREFUSED 1.2.3.4:443"), { code: "ECONNREFUSED" });
+  const http = createHttp({
+    fetchImpl: async () => { throw new TypeError("fetch failed", { cause }); },
+    sleep: async () => {},
+  });
+  await assert.rejects(http.getText("https://x.test/a"), {
+    name: "FetchError",
+    message: "https://x.test/a: fetch failed (ECONNREFUSED: connect ECONNREFUSED 1.2.3.4:443)",
+  });
+});

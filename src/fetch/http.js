@@ -28,7 +28,11 @@ export function createHttp({ fetchImpl = fetch, minGapMs = 1000, timeoutMs = 200
         signal: AbortSignal.timeout(timeoutMs),
       });
     } catch (e) {
-      throw new FetchError(`${url}: ${e.name === "TimeoutError" ? "timed out" : e.message}`);
+      if (e.name === "TimeoutError") throw new FetchError(`${url}: timed out`);
+      // Node's fetch says only "fetch failed"; the cause holds the socket, DNS or TLS error.
+      const c = e.cause;
+      const why = c ? ` (${[c.code, c.message].filter(Boolean).join(": ")})` : "";
+      throw new FetchError(`${url}: ${e.message}${why}`);
     }
     if (!res.ok) throw new FetchError(`${url}: HTTP ${res.status}`, res.status);
     return { url: res.url || url, text: await res.text() };
