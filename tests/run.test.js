@@ -60,6 +60,17 @@ test("missing previous data is treated as empty", async () => {
   assert.equal(index.schools[0].status, "stale");
 });
 
+test("each adapter gets that school's previously published items", async () => {
+  const old = { schema: 1, items: [item("x", "2026-10-01T08:00:00+08:00")] };
+  const got = {};
+  const fake = async (s, http, now, previousItems) => {
+    got[s.code] = previousItems;
+    return [];
+  };
+  await runAll({ schools: [school("A"), school("B")], previous: new Map([["A", old]]), adapters: { fake }, http: {}, now: NOW });
+  assert.deepEqual(got, { A: old.items, B: [] });
+});
+
 test("unsupported schools are listed but not fetched", async () => {
   let called = 0;
   const { index, files } = await runAll({
