@@ -1,12 +1,12 @@
 // CLI: node src/fetch/main.js --out <dir> [--base <published data URL>] [--only code,code] [--schools <file>] [--tags <file>] [--reuse]
 // --reuse copies the live data from --base (no school is contacted). A school whose live file
 // cannot be read is deployed as stale with no items; if the index or more than 80% of the files
-// cannot be read, the schools are fetched as usual.
+// cannot be read, the schools are fetched as usual. Tags come from the repo either way.
 import { readFile, appendFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import { createHttp } from "./http.js";
 import { adapters } from "./adapters/index.js";
-import { loadPrevious, loadPublished, runAll, writeOutput } from "./run.js";
+import { applyTags, loadPrevious, loadPublished, runAll, writeOutput } from "./run.js";
 
 const { values } = parseArgs({
   options: {
@@ -42,6 +42,7 @@ if (values.reuse && values.base) {
   const why = [];
   const live = await loadPublished(values.base, createHttp({ minGapMs: 0 }), (m) => why.push(m), schools);
   if (live) {
+    applyTags(live.files, schools, tagTexts);
     await writeOutput(values.out, live);
     const lines = [`reused live data: ${live.files.size} school files, generated ${live.index.generated_at}`];
     if (live.missing.length) lines.push(`deployed as stale with no items (${live.missing.join(", ")}): ${why.join("; ")}`);

@@ -225,3 +225,15 @@ test("loadPublished keeps the live data at 80% missing and gives null above it",
   assert.ok(await loadPublished("https://x.github.io/app/data", liveHttp(four)));
   assert.equal(await loadPublished("https://x.github.io/app/data", liveHttp([...four, "E.json"])), null);
 });
+
+import { applyTags } from "../src/fetch/run.js";
+
+test("applyTags sets each reused file's tags from the current school list", () => {
+  const files = new Map([
+    ["A", { items: [], tags: [{ name: "old", text: "舊" }] }],
+    ["B", { items: [] }],
+  ]);
+  applyTags(files, [{ ...school("A") }, { ...school("B"), tags: ["limit"] }], { limit: "受限說明" });
+  assert.deepEqual(files.get("A").tags, []);
+  assert.deepEqual(files.get("B").tags, [{ name: "limit", text: "受限說明" }]);
+});
