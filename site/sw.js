@@ -2,12 +2,13 @@
 import { findNews, newsMessage } from "./check.js";
 import { idbGet } from "./idb.js";
 
-const CACHE = "snql-v1";
+// The deploy workflow replaces __BUILD__ with the commit, so every deploy installs a new worker.
+const CACHE = "snql-__BUILD__";
 const SHELL = ["./", "index.html", "styles.css", "app.js", "store.js", "sanitize.js", "check.js", "idb.js",
   "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
