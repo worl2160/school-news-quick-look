@@ -4,7 +4,7 @@ import { idbGet, idbSet } from "./idb.js";
 
 // The deploy workflow replaces __BUILD__ with the commit, so every deploy installs a new worker.
 const CACHE = "snql-__BUILD__";
-const SHELL = ["./", "index.html", "styles.css", "app.js", "store.js", "sanitize.js", "check.js", "idb.js",
+const SHELL = ["./", "index.html", "styles.css", "app.js", "store.js", "sanitize.js", "check.js", "idb.js", "filter.js",
   "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 
 self.addEventListener("install", (e) => {

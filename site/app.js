@@ -5,6 +5,7 @@
 import { createStore } from "./store.js";
 import { cleanHtml, safeUrl } from "./sanitize.js";
 import { idbSet } from "./idb.js";
+import { filterSchools } from "./filter.js";
 
 const DATA = "./data/";
 const BG_KEY = "snql:bg";
@@ -137,20 +138,23 @@ async function renderHome() {
 
   const drawChips = () => {
     chips.replaceChildren(
-      ...["", ...districts].map((d) =>
+      ...districts.map((d) =>
         h("button", {
           class: "chip",
           type: "button",
           "aria-pressed": String(filter.district === d),
-          onclick: () => { filter.district = d; drawChips(); drawRows(); },
-        }, d || "全部行政區"),
+          // Tapping the chosen district again clears it.
+          onclick: () => { filter.district = filter.district === d ? "" : d; drawChips(); drawRows(); },
+        }, d),
       ),
     );
   };
   const drawRows = () => {
-    const q = filter.text.trim();
-    const list = index.schools.filter((s) => (!filter.district || s.district === filter.district) && (!q || s.name.includes(q)));
-    count.textContent = `所有學校(${list.length})`;
+    const list = filterSchools(index.schools, filter);
+    const searching = filter.text.trim() || filter.district;
+    count.textContent = searching ? `搜尋結果(${list.length})` : "";
+    count.hidden = !searching;
+    rows.hidden = !list.length;
     rows.replaceChildren(
       ...list.map((s) => {
         const on = store.followed().includes(s.code);
