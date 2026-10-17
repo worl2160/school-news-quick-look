@@ -264,9 +264,12 @@
    "district": "大安區",
    "type": "public",
    "url": "https://www.ntueees.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "php-phpbb",
+   "params": {
+    "forum_path": "/phpBB/viewforum.php?f=2",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
   },
   {
    "code": "331602",
