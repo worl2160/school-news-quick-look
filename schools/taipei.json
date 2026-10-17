@@ -1,0 +1,2302 @@
+{
+ "source": "https://stats.moe.gov.tw/files/school/115/e1_new.csv",
+ "schools": [
+  {
+   "code": "313601",
+   "name": "松山國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://www.ssps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "1AvhodR1985",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313602",
+   "name": "西松國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://web.sups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "5a8Ths05452",
+    "board_name": "相關動態訊息公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313604",
+   "name": "敦化國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://www.thps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "OBVPqIm7874",
+    "board_name": "行政公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313605",
+   "name": "民生國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://www.msps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "JwkFChX2841",
+    "board_name": "所有公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313606",
+   "name": "民權國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://www.mqes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "wrneR3s7855",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313607",
+   "name": "民族國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://www.mces.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "hll9v924473",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313608",
+   "name": "三民國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://web.smps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "yw8E5Nw3301",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "313609",
+   "name": "健康國小",
+   "city": "臺北市",
+   "district": "松山區",
+   "type": "public",
+   "url": "https://www.jkes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "bYEhWHx9434",
+    "board_name": "最新公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323601",
+   "name": "興雅國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.hyps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "1534429046984",
+    "board_name": "訊息公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323603",
+   "name": "光復國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.kfps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "QOp9Na24754",
+    "board_name": "校園公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323604",
+   "name": "三興國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.shps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "b2X3zzP1187",
+    "board_name": "最新公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323605",
+   "name": "信義國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.syes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "N84R5hZ3727",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323606",
+   "name": "吳興國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.wsps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "6FARrVX7539",
+    "board_name": "公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323607",
+   "name": "福德國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.fdps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "lSOuOSx2843",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323609",
+   "name": "博愛國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.baps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "gg4ftPp2824",
+    "board_name": "重點新聞"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "323610",
+   "name": "雙永國小",
+   "city": "臺北市",
+   "district": "信義區",
+   "type": "public",
+   "url": "https://www.yyes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "JcaSfWK8749",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "330601",
+   "name": "國立臺北教大實小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.ntueees.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "331602",
+   "name": "立人國(中)小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "private",
+   "url": "https://www.ljjhps.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "331603",
+   "name": "新民小學",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "private",
+   "url": "https://www.hmps.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "333601",
+   "name": "龍安國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.laes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "oXv8Dcb4418",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333602",
+   "name": "大安國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.taes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "ILTvFWZ3698",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333603",
+   "name": "幸安國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.haps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "gJobLKg6123",
+    "board_name": "首頁公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333604",
+   "name": "建安國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.jnps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "61W1ukq5586",
+    "board_name": "建安國小公告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333605",
+   "name": "仁愛國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.japs.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "2X1SWCi0367",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333606",
+   "name": "金華國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.cups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "DQhvC3G2826",
+    "board_name": "行政公佈欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333607",
+   "name": "古亭國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.gtes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "T5NtG6S4123",
+    "board_name": "古亭公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333608",
+   "name": "銘傳國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.mhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "5PWnH625614",
+    "board_name": "本校最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333609",
+   "name": "公館國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.gges.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "pln6l0b0362",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333610",
+   "name": "新生國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://web.snes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "a1POzAU0373",
+    "board_name": "新生新訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "333611",
+   "name": "和平實驗國小",
+   "city": "臺北市",
+   "district": "大安區",
+   "type": "public",
+   "url": "https://www.hpees.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "kCJsG6E9027",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343601",
+   "name": "中山國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.csps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "GISjtmf0017",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343602",
+   "name": "中正國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.jjes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "DifBg5m9303",
+    "board_name": "校務佈告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343603",
+   "name": "長安國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.caps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "YBkWRvv2718",
+    "board_name": "校園公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343604",
+   "name": "長春國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.ccps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "Sp34eqd1376",
+    "board_name": "首頁公布欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343605",
+   "name": "大直國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.tzes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "SGnA0Om0471",
+    "board_name": "大直公佈欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343606",
+   "name": "大佳國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.djes.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "343607",
+   "name": "五常國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.wcps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "kI8U24E1198",
+    "board_name": "五常訊息Information"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343608",
+   "name": "吉林國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.clps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "RmWb4J09111",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343609",
+   "name": "懷生國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.wses.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "343610",
+   "name": "永安國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.yaes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "FZpHBNl6460",
+    "board_name": "學校公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "343611",
+   "name": "濱江國小",
+   "city": "臺北市",
+   "district": "中山區",
+   "type": "public",
+   "url": "https://www.bjes.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "353601",
+   "name": "螢橋國小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.yces.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "GzbAxXx6770",
+    "board_name": "公告訊息Announcements"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353602",
+   "name": "河堤國小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.htps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "ZdSqnGX3899",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353603",
+   "name": "忠義實驗國小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.cips.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "DbNhUKX2570",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353604",
+   "name": "國語實小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.meps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "lpaI2O09558",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353605",
+   "name": "南門國小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.nmes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "9aGcOmw1121",
+    "board_name": "南門公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353606",
+   "name": "東門國小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.tmps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "lLJkGka2080",
+    "board_name": "分類公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353607",
+   "name": "忠孝國小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.ches.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "p6Riu0H6469",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "353608",
+   "name": "臺北市立大學附小",
+   "city": "臺北市",
+   "district": "中正區",
+   "type": "public",
+   "url": "https://www.esut.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "pcqkqNU8445",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363601",
+   "name": "蓬萊國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.plps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "Ov0gqxO3225",
+    "board_name": "公告訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363602",
+   "name": "日新國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.zhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "2jdDrbi6459",
+    "board_name": "日新公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363603",
+   "name": "太平國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.tpes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "Qme9rk49151",
+    "board_name": "太平國小公告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363604",
+   "name": "永樂國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.ylps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "xaEqDSJ3124",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363605",
+   "name": "雙蓮國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.sles.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "LAcpnfJ3360",
+    "board_name": "公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363606",
+   "name": "大同國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://web.ttps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "0UTWKJo1993",
+    "board_name": "各類動態訊息公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363607",
+   "name": "大龍國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.dlps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "TNzBelL1526530925667",
+    "board_name": "大龍布告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363608",
+   "name": "延平國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.ypps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "XCq9H7t8761",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "363609",
+   "name": "大橋國小",
+   "city": "臺北市",
+   "district": "大同區",
+   "type": "public",
+   "url": "https://www.tjps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "taRaxne1934",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "371601",
+   "name": "光仁小學",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "private",
+   "url": "https://www.kjes.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "373601",
+   "name": "新和國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.soes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "lpLxIcv2913",
+    "board_name": "最新訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373602",
+   "name": "雙園國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.syps.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "373603",
+   "name": "東園國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.tyes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "8jjFCBF5335",
+    "board_name": "東園布告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373604",
+   "name": "大理國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.tlps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "guhlA8u9026",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373605",
+   "name": "西園國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.hups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "lhdmD6j8618",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373606",
+   "name": "萬大國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.wtps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "E4ofohG6223",
+    "board_name": "萬大國小公告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373607",
+   "name": "華江國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.hces.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "tFlJwop4409",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373608",
+   "name": "西門國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.hmes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "GBheqjD1572",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373609",
+   "name": "老松國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://web.tlsps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "BdEruDb3981",
+    "board_name": "老松佈告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373610",
+   "name": "龍山國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.lses.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "42SUOBy7643",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "373611",
+   "name": "福星國小",
+   "city": "臺北市",
+   "district": "萬華區",
+   "type": "public",
+   "url": "https://www.fhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "C06hMkp5561",
+    "board_name": "訊息公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "380601",
+   "name": "國立政大實小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.es.nccu.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "381602",
+   "name": "中山小學",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "private",
+   "url": "https://www.mjcskg.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "UKq2aDR1928",
+    "board_name": "公告訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "381603",
+   "name": "再興小學",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "private",
+   "url": "https://www.tsps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "LrSlhMG1368",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383601",
+   "name": "景美國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.cmes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "OUYDrbx9697",
+    "board_name": "置頂公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383602",
+   "name": "武功國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.wkps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "8noCmHT5602",
+    "board_name": "最新消息彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383603",
+   "name": "興德國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.hdps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "RQoF5Ga0549",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383604",
+   "name": "溪口國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.skps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "tK5uaex5824",
+    "board_name": "公告訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383605",
+   "name": "興隆國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.hlps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "3PaDnei1079",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383606",
+   "name": "志清國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.jcps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "ODAhG3F7231",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383607",
+   "name": "景興國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.chps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "7qehyY08143",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383608",
+   "name": "木柵國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.mjes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "N6NKkyR1276",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383609",
+   "name": "永建國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.yjps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "ZzAY7aD1354",
+    "board_name": "永建公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383610",
+   "name": "實踐國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.zjps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "7x5PZcv1545",
+    "board_name": "實踐快訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383611",
+   "name": "博嘉實驗國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.bjps.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "383612",
+   "name": "指南實小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.cnps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "vYFPPgc9568",
+    "board_name": "一般公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383613",
+   "name": "明道國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.mdps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "2bXE2ek5034",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383614",
+   "name": "萬芳國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.wfes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "rB1VP276805",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383615",
+   "name": "力行國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.lsps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "Q1UqHAl7921",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383616",
+   "name": "萬興國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.wxes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "P0YgRt30882",
+    "board_name": "校園活動訊息 Campus Activity Information"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383617",
+   "name": "萬福國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.wfps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "EdKcRqw6951",
+    "board_name": "公告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383618",
+   "name": "興華國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.hhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "imIZyFR9935",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "383619",
+   "name": "辛亥國小",
+   "city": "臺北市",
+   "district": "文山區",
+   "type": "public",
+   "url": "https://www.saes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "2v1UL368653",
+    "board_name": "學校公告 Announcement"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393601",
+   "name": "南港國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://w3.nkps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "X3bkzWp1094",
+    "board_name": "消息彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393602",
+   "name": "舊莊國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://www.zzes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "vwxvnvR2640",
+    "board_name": "校園公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393603",
+   "name": "玉成國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://www.yhes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "qevLDlv6174",
+    "board_name": "熱門消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393604",
+   "name": "成德國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://www.ctps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "150pFjE7175",
+    "board_name": "公告彙整-20220729"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393605",
+   "name": "胡適國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://www.hsps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "dblivcY1750",
+    "board_name": "宣導與公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393606",
+   "name": "東新國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://www.thes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "Fkl44sa7467",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "393607",
+   "name": "修德國小",
+   "city": "臺北市",
+   "district": "南港區",
+   "type": "public",
+   "url": "https://www.sdps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "WtWOtlw3142",
+    "board_name": "校務公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403601",
+   "name": "內湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.nhes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "lwMEZ2e0199",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403602",
+   "name": "碧湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.bhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "Wj69zXD7195",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403603",
+   "name": "潭美國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.tmes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "fsBgcbc1809",
+    "board_name": "公告訊息 Latest News"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403604",
+   "name": "東湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.dfps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "Jh9mQ4j4083",
+    "board_name": "行政公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403605",
+   "name": "西湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.hhups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "OrIobil6458",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403606",
+   "name": "康寧國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.klps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "eLI7Uo31197",
+    "board_name": "重點訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403607",
+   "name": "明湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.mhups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "6rTw3La8432",
+    "board_name": "行政公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403608",
+   "name": "麗山國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://w3.lnps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "AK5B6RY6749",
+    "board_name": "麗山國小公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403609",
+   "name": "新湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.shes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "dn1TA0R5405",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403610",
+   "name": "文湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.whups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "R41p4fS2350",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403611",
+   "name": "大湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.dhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "EMoVjCN5855",
+    "board_name": "學校公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403612",
+   "name": "南湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.nhps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "lHrr5pl5913",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "403613",
+   "name": "麗湖國小",
+   "city": "臺北市",
+   "district": "內湖區",
+   "type": "public",
+   "url": "https://www.lhes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "p9MyQ7y9997",
+    "board_name": "麗湖公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413601",
+   "name": "士林國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.slps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "fagymL37215",
+    "board_name": "公告訊息彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413602",
+   "name": "士東國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.stes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "RlOzwXk1697",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413603",
+   "name": "福林國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.flps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "KCwPLsp8061",
+    "board_name": "行政公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413604",
+   "name": "陽明山國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.ymps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "U59GCP10236",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413605",
+   "name": "社子國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.stps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "7nclmJX7104",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413606",
+   "name": "雨聲國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.yses.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "SWzTqgK1528181031815",
+    "board_name": "公布欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413607",
+   "name": "富安國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.fuanps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "0qZhSD85734",
+    "board_name": "公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413608",
+   "name": "劍潭國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.jtes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "g0SEOlW3356",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413609",
+   "name": "溪山實驗國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.hops.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "85spIaQ9736",
+    "board_name": "公告資訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413610",
+   "name": "平等國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.pdps.tp.edu.tw",
+   "adapter": null,
+   "params": null,
+   "status": "unsupported"
+  },
+  {
+   "code": "413611",
+   "name": "百齡國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.bles.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "8XLYtfD5975",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413612",
+   "name": "雙溪國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.sses.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "wF8FUxm2898",
+    "board_name": "公告訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413613",
+   "name": "葫蘆國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.hrps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "VUHRYxA7115",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413614",
+   "name": "雨農國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.ynes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "wJSSTtT2701",
+    "board_name": "雨農布告欄"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413615",
+   "name": "天母國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.tmups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "dH89DtA6397",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413616",
+   "name": "文昌國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.wces.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "tPzakg62873",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413617",
+   "name": "芝山國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.zsps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "J0xP1NZ6626",
+    "board_name": "行政公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413618",
+   "name": "蘭雅國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.lyps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "sZvoeZ23543",
+    "board_name": "公告彙整1"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "413619",
+   "name": "三玉國小",
+   "city": "臺北市",
+   "district": "士林區",
+   "type": "public",
+   "url": "https://www.syups.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "I3SwCpa9381",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "421601",
+   "name": "薇閣小學",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "private",
+   "url": "https://esweb.wgps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "QqywfOH3284",
+    "board_name": "公告彙整 WEGO NEWS"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423601",
+   "name": "北投國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.ptes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "OfeyRnL0494",
+    "board_name": "校園公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423602",
+   "name": "逸仙國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.ysps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "aKGkjdi4902",
+    "board_name": "逸仙公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423603",
+   "name": "石牌國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://web.spps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "EsbllyI4156",
+    "board_name": "校園公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423604",
+   "name": "關渡國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.kdps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "m5xh7W97901",
+    "board_name": "校園公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423605",
+   "name": "湖田實驗國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.htes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "SidW0eq2590",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423606",
+   "name": "清江國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.cjps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "3soBeK78617",
+    "board_name": "公告訊息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423607",
+   "name": "泉源實驗國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.cyps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "dDqnpuT0917",
+    "board_name": "最新公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423608",
+   "name": "大屯國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.dtps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "04eF5Ir5661",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423609",
+   "name": "湖山國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.hses.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "lkCeSdP4466",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423610",
+   "name": "桃源國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.tyues.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "5ICFhGU7846",
+    "board_name": "最新消息"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423611",
+   "name": "文林國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.wles.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "d6sNmSJ1305",
+    "board_name": "114~115甄聘公告"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423612",
+   "name": "義方國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.yfes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "AGGwdqH2937",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423613",
+   "name": "立農國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.lnes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "evaAKEo8434",
+    "board_name": "公告分類顯示"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423614",
+   "name": "明德國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.mdes.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "ndPGzzd3333",
+    "board_name": "明德快訊"
+   },
+   "status": "ok"
+  },
+  {
+   "code": "423616",
+   "name": "文化國小",
+   "city": "臺北市",
+   "district": "北投區",
+   "type": "public",
+   "url": "https://www.whps.tp.edu.tw",
+   "adapter": "nss",
+   "params": {
+    "upath": "main",
+    "mid": "5abf2d62aa93092cee58ceb4",
+    "sid": "x4o3QpY7450",
+    "board_name": "公告彙整"
+   },
+   "status": "ok"
+  }
+ ]
+}
