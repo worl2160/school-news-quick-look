@@ -1,9 +1,11 @@
-// CLI: node src/fetch/main.js --out <dir> [--base <published data URL>] [--only code,code] [--schools <file>]
+// CLI: node src/fetch/main.js --out <dir> [--base <published data URL>] [--only code,code] [--schools <file>] [--reuse]
+// --reuse copies the live data from --base unchanged (no school is contacted); if it cannot
+// be read completely, the schools are fetched as usual.
 import { readFile, appendFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 import { createHttp } from "./http.js";
 import { adapters } from "./adapters/index.js";
-import { loadPrevious, runAll, writeOutput } from "./run.js";
+import { loadPrevious, loadPublished, runAll, writeOutput } from "./run.js";
 
 const { values } = parseArgs({
   options: {
@@ -11,11 +13,24 @@ const { values } = parseArgs({
     base: { type: "string" },
     only: { type: "string" },
     schools: { type: "string", default: "schools/taipei.json" },
+    reuse: { type: "boolean", default: false },
   },
 });
 if (!values.out) {
   console.error("usage: main.js --out <dir> [--base <url>] [--only code,code] [--schools <file>]");
   process.exit(2);
+}
+
+if (values.reuse && values.base) {
+  const live = await loadPublished(values.base, createHttp({ minGapMs: 0 }));
+  if (live) {
+    await writeOutput(values.out, live);
+    const line = `reused live data: ${live.files.size} school files, generated ${live.index.generated_at}`;
+    console.log(line);
+    if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, line + "\n");
+    process.exit(0);
+  }
+  console.log("live data incomplete or missing; fetching the schools instead");
 }
 
 let schools;

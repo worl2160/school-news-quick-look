@@ -12,3 +12,11 @@ test("each deploy gives the service worker a new cache name", () => {
 test("the service worker installs fresh copies, not HTTP-cached ones", () => {
   assert.match(read("../site/sw.js"), /new Request\(u, \{ cache: "reload" \}\)/);
 });
+
+test("a push to main keeps the live data unless its PR carries the refetch label", () => {
+  const wf = read("../.github/workflows/update.yml");
+  assert.match(wf, /pull-requests: read/);
+  assert.match(wf, /commits\/\$\{GITHUB_SHA\}\/pulls/);
+  assert.match(wf, /refetch/);
+  assert.match(wf, /--reuse/);
+});
