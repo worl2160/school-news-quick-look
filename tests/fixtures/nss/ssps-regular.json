@@ -1,0 +1,295 @@
+{
+ "error": 0,
+ "msg": "ok",
+ "data": {
+  "result": [
+   {
+    "type": "multi",
+    "destroyed": false,
+    "keyword": [
+     "國立臺灣師範大學科學教育中心辦理「115國中生物實驗營II」",
+     "630834643b0ee7669c7b5424",
+     "學務處",
+     []
+    ],
+    "visit": 4,
+    "_id": "6ad1daf02849ffc2bbecde19",
+    "sid": "1AvhodR1985",
+    "data": {
+     "name": "國立臺灣師範大學科學教育中心辦理「115國中生物實驗營II」",
+     "stime": 1792137840000,
+     "dtime": 1794729840000,
+     "content": "<p>國立臺灣師範大學科學教育中心辦理「115國中生物實驗營II」活動資 訊</p><p>活動訊息摘要如下：</p><p>1. 日期：116年1月21日(星期四)至1 月23日(星期六)，共計三日。上午9:00至16:30。</p><p>2. 地 點：本校公館校區(臺北市汀州路四段88號，公車站牌：師 大分部)。</p><p>3. 對象：115學年度升讀小學5、6年級，國中1 至3年級學生。</p><p>4. 課程內容：國中生物實驗操作，詳如簡 章。，</p>",
+     "annoId": "630834643b0ee7669c7b5424",
+     "annoName": "學務處",
+     "links": [],
+     "keys": [],
+     "top": false,
+     "topEndDay": "",
+     "topEndDate": "",
+     "topEndTime": "",
+     "classId": [
+      "DDFrKZW5333",
+      "zbKZgxA7646",
+      "V9Hq4ez8784"
+     ],
+     "show": true,
+     "status": "passed",
+     "released": true,
+     "unlimited": false,
+     "jcounter": "6ad1daf05302acc2cd5ad544",
+     "tpUnionId": "",
+     "topBasedOnDate": "2026-10-16",
+     "updateAt": "2026-10-16",
+     "ext": [
+      {
+       "name": "29724477_1151028670.pdf",
+       "url": "/uploads/1792137968173BjAhkPaL.pdf"
+      },
+      {
+       "name": "29724477_1151028670_ATTCH1.pdf",
+       "url": "/uploads/1792137968166wXiN5MLd.pdf"
+      },
+      {
+       "name": "1153007400_1_06205692500(opinion).pdf",
+       "url": "/uploads/1792137968158fW0B1dCE.pdf"
+      },
+      {
+       "name": "合併版.pdf",
+       "url": "/uploads/1792137968167a1e3u4vY.pdf"
+      }
+     ],
+     "mtime": 1792137968227
+    },
+    "ctime": "2026-10-16T08:06:08.273Z",
+    "utime": "2026-10-17T04:51:25.627Z",
+    "__v": 0
+   },
+   {
+    "type": "multi",
+    "destroyed": false,
+    "keyword": [
+     "115年10月31日（星期六）辦理「藝起在艋舺」鼓勵師生及家長踴躍參加",
+     "630834643b0ee7669c7b5424",
+     "學務處",
+     []
+    ],
+    "visit": 5,
+    "_id": "6ad1d80057529dc2e5f47914",
+    "sid": "1AvhodR1985",
+    "data": {
+     "name": "115年10月31日（星期六）辦理「藝起在艋舺」鼓勵師生及家長踴躍參加",
+     "stime": 1792137120000,
+     "dtime": 1794729120000,
+     "content": "<p>為慶祝本市萬華區艋舺公園景觀改善工程完工啟用，</p><p>本府 公園處自115年10月17日起至11月7日止，連續4個週末舉辦 系列活動，</p><p>本局於115年10月31日（星期六）上午11時至下 午6時於艋舺公園辦理旨揭活動，</p><p>特別邀請萬華區多所國民 中小學、社區大學及東吳大學進行藝文接力展演，展現地 方文化蛻變與新生之成果。</p>",
+     "annoId": "630834643b0ee7669c7b5424",
+     "annoName": "學務處",
+     "links": [],
+     "keys": [],
+     "top": false,
+     "topEndDay": "",
+     "topEndDate": "",
+     "topEndTime": "",
+     "classId": [
+      "DDFrKZW5333",
+      "zbKZgxA7646",
+      "V9Hq4ez8784"
+     ],
+     "show": true,
+     "status": "passed",
+     "released": true,
+     "unlimited": false,
+     "jcounter": "6ad1d800bcaa29be6ed7b08d",
+     "tpUnionId": "",
+     "topBasedOnDate": "2026-10-16",
+     "updateAt": "2026-10-16",
+     "ext": [
+      {
+       "name": "合併版.pdf",
+       "url": "/uploads/1792137215679TGjxWTT8.pdf"
+      },
+      {
+       "name": "29707342_1153107647_ATTCH1.jpg",
+       "url": "/uploads/1792137216331tVV2LSyD.jpg"
+      }
+     ],
+     "mtime": 1792137216377
+    },
+    "ctime": "2026-10-16T07:53:36.401Z",
+    "utime": "2026-10-17T04:51:21.516Z",
+    "__v": 0
+   },
+   {
+    "type": "multi",
+    "destroyed": false,
+    "keyword": [
+     "115年度小學生教育型AI學習夥伴應用競賽簡章",
+     "630834643b0ee7669c7b5423",
+     "教務處",
+     []
+    ],
+    "visit": 4,
+    "_id": "6ad1c518dfa6d8b8a2a2f428",
+    "sid": "1AvhodR1985",
+    "data": {
+     "name": "115年度小學生教育型AI學習夥伴應用競賽簡章",
+     "stime": 1792132320000,
+     "dtime": 1794724320000,
+     "content": "<p>&nbsp;</p>",
+     "annoId": "630834643b0ee7669c7b5423",
+     "annoName": "教務處",
+     "links": [],
+     "keys": [],
+     "top": false,
+     "topEndDay": "",
+     "topEndDate": "",
+     "topEndTime": "",
+     "classId": [
+      "V9Hq4ez8784"
+     ],
+     "show": true,
+     "status": "passed",
+     "released": true,
+     "unlimited": false,
+     "jcounter": "6ad1c5185a4622c0c16c57d2",
+     "tpUnionId": "",
+     "topBasedOnDate": "2026-10-16",
+     "updateAt": "2026-10-16",
+     "ext": [
+      {
+       "name": "115年度小學生教育型AI學習夥伴應用競賽簡章.pdf",
+       "url": "/uploads/1792132376850nExSOaiQ.pdf"
+      }
+     ],
+     "mtime": 1792132376892
+    },
+    "ctime": "2026-10-16T06:32:56.931Z",
+    "utime": "2026-10-17T04:51:20.124Z",
+    "__v": 0
+   },
+   {
+    "type": "multi",
+    "destroyed": false,
+    "keyword": [
+     "轉知本市115學年度教育盃中小學滑輪溜冰錦標賽競賽規程",
+     "630834643b0ee7669c7b5424",
+     "學務處",
+     []
+    ],
+    "visit": 4,
+    "_id": "6ad18e851a3eeab418b1555c",
+    "sid": "1AvhodR1985",
+    "data": {
+     "name": "轉知本市115學年度教育盃中小學滑輪溜冰錦標賽競賽規程",
+     "stime": 1792117800000,
+     "dtime": 253402271940000,
+     "content": "<p>比賽日期：&nbsp;</p><p>１、自由式輪滑類：115年12月7日（星期一）。&nbsp;</p><p>２、競速類：115年12月15日及16日（星期二及星期三）， 雨備時間115年12月17日及18日（星期四及星期 五）。&nbsp;</p><p>３、花式類：116年5月3日及4日（星期一及星期二）。</p><p>報名日期:</p><p>１、競速類及自由式輪滑類：115年10月19日（星期一)） 至115年10月30日（星期五）下午4時止。&nbsp;</p><p>２、花式類：116年3月22日（星期一）至116年3月29日 （星期一）下午4時止。</p><p>比賽地點：&nbsp;</p><p>１、自由式輪滑類：臺北市大同運動中心5樓。&nbsp;</p><p>２、競速類：臺北市迎風河濱公園滑輪溜冰場。&nbsp;</p><p>３、花式類：臺北市大同運動中心5樓。<br>&nbsp;</p><p>有意願參賽的同學請洽學務處體育組陳老師~</p>",
+     "annoId": "630834643b0ee7669c7b5424",
+     "annoName": "學務處",
+     "links": [],
+     "keys": [],
+     "top": false,
+     "topEndDay": "",
+     "topEndDate": "",
+     "topEndTime": "",
+     "classId": [
+      "V9Hq4ez8784"
+     ],
+     "show": true,
+     "status": "passed",
+     "released": true,
+     "unlimited": false,
+     "jcounter": "6ad18e857cf362b49d2ce301",
+     "tpUnionId": "",
+     "topBasedOnDate": "2026-10-16",
+     "updateAt": "2026-10-16",
+     "ext": [
+      {
+       "name": "115教育盃溜冰賽競賽規程.pdf",
+       "url": "/uploads/179211840509883nfUxqJ.pdf"
+      }
+     ],
+     "mtime": 1792118405291
+    },
+    "ctime": "2026-10-16T02:40:05.333Z",
+    "utime": "2026-10-17T04:51:23.184Z",
+    "__v": 0
+   },
+   {
+    "type": "multi",
+    "destroyed": false,
+    "keyword": [
+     "轉知-有關自115年地方公職人員選舉起，中央及地方公職人員定期選舉，參加選務工作人員補假事宜一案，經行政院同意准予補假2日，請所屬同仁並鼓勵踴躍參與投開票所工作，請查照。",
+     "630834643b0ee7669c7b5428",
+     "人事室",
+     []
+    ],
+    "visit": 8,
+    "_id": "6ad042ae1087b571f72feb9b",
+    "sid": "1AvhodR1985",
+    "data": {
+     "name": "轉知-有關自115年地方公職人員選舉起，中央及地方公職人員定期選舉，參加選務工作人員補假事宜一案，經行政院同意准予補假2日，請所屬同仁並鼓勵踴躍參與投開票所工作，請查照。",
+     "stime": 1792033320000,
+     "dtime": 1794625320000,
+     "content": "<p>&nbsp;</p>",
+     "annoId": "630834643b0ee7669c7b5428",
+     "annoName": "人事室",
+     "links": [],
+     "keys": [],
+     "top": false,
+     "topEndDay": "",
+     "topEndDate": "",
+     "topEndTime": "",
+     "classId": [
+      "DDFrKZW5333"
+     ],
+     "show": true,
+     "status": "passed",
+     "released": true,
+     "unlimited": false,
+     "jcounter": "6ad042aeee9fd172e9b07ce6",
+     "tpUnionId": "",
+     "topBasedOnDate": "2026-10-15",
+     "updateAt": "2026-10-15",
+     "ext": [
+      {
+       "name": "115年參加選務工作補假2日來文.pdf",
+       "url": "/uploads/1792033454081NNkxTR8L.pdf"
+      },
+      {
+       "name": "115年參加選務補假2日ATTCH1.pdf",
+       "url": "/uploads/1792033454078Hov5FRjG.pdf"
+      }
+     ],
+     "mtime": 1792033454123
+    },
+    "ctime": "2026-10-15T03:04:14.153Z",
+    "utime": "2026-10-16T10:44:19.757Z",
+    "__v": 0
+   }
+  ],
+  "options": {
+   "page": 1,
+   "number": 5,
+   "query": [
+    {
+     "between": {
+      "max": "dtime",
+      "min": "stime",
+      "value": 1792216854697
+     },
+     "match": {
+      "released": true,
+      "status": "passed",
+      "show": true
+     }
+    }
+   ],
+   "sort": {
+    "stime": -1,
+    "ctime": -1
+   },
+   "count": 518
+  }
+ }
+}
