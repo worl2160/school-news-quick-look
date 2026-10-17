@@ -60,3 +60,30 @@ test("an unnamed board is called 公告", () => {
   const got = pickBoard([mod("b", NEW, "", 2), mod("a", NEW, "", 1)]);
   assert.deepEqual(got, { mid: NEW, sid: "a", board_name: "公告" });
 });
+
+import { rankBoards, chooseBoard } from "../src/schools/nss-site.js";
+
+test("甄聘 boards rank after announcement boards", () => {
+  const ranked = rankBoards([mod("j", NEW, "114~115甄聘公告", 1), mod("a", NEW, "公告彙整", 2)]);
+  assert.deepEqual(ranked.map((b) => b.sid), ["a", "j"]);
+});
+
+test("chooseBoard takes the first board updated within 60 days", async () => {
+  const now = new Date("2026-10-17T12:00:00+08:00");
+  const newest = { a: "2026-07-01T08:00:00+08:00", b: "2026-10-16T08:00:00+08:00", c: null };
+  const ranked = [{ sid: "c" }, { sid: "a" }, { sid: "b" }];
+  const got = await chooseBoard(ranked, async (b) => newest[b.sid], now);
+  assert.equal(got.sid, "b");
+});
+
+test("chooseBoard falls back to the most recently updated board", async () => {
+  const now = new Date("2026-10-17T12:00:00+08:00");
+  const newest = { a: "2026-03-01T08:00:00+08:00", b: "2026-05-01T08:00:00+08:00" };
+  const got = await chooseBoard([{ sid: "a" }, { sid: "b" }], async (b) => newest[b.sid], now);
+  assert.equal(got.sid, "b");
+});
+
+test("chooseBoard keeps the top-ranked board when none can be read", async () => {
+  const got = await chooseBoard([{ sid: "a" }, { sid: "b" }], async () => { throw new Error("x"); }, new Date());
+  assert.equal(got.sid, "a");
+});

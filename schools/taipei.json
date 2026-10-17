@@ -440,7 +440,7 @@
    "city": "臺北市",
    "district": "大安區",
    "type": "public",
-   "url": "https://web.snes.tp.edu.tw",
+   "url": "https://www.snes.tp.edu.tw",
    "adapter": "nss",
    "params": {
     "upath": "main",
@@ -1381,7 +1381,7 @@
    "city": "臺北市",
    "district": "文山區",
    "type": "public",
-   "url": "https://www.wfps.tp.edu.tw",
+   "url": "https://web.wfps.tp.edu.tw",
    "adapter": "nss",
    "params": {
     "upath": "main",
@@ -2180,9 +2180,9 @@
    "adapter": "nss",
    "params": {
     "upath": "main",
-    "mid": "5abf2d62aa93092cee58ceb4",
-    "sid": "04eF5Ir5661",
-    "board_name": "公告彙整"
+    "mid": "5a9759adef37531ea27bf1b0",
+    "sid": "0xt0A535239",
+    "board_name": "活動訊息"
    },
    "status": "ok"
   },
@@ -2229,8 +2229,8 @@
    "params": {
     "upath": "main",
     "mid": "5a9759adef37531ea27bf1b0",
-    "sid": "d6sNmSJ1305",
-    "board_name": "114~115甄聘公告"
+    "sid": "4htp1UQ5491",
+    "board_name": "113~115行政公告"
    },
    "status": "ok"
   },

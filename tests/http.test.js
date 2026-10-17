@@ -48,3 +48,15 @@ test("HTTP error status raises FetchError with the status", async () => {
   const http = createHttp({ fetchImpl: f.impl, sleep: async () => {} });
   await assert.rejects(http.getText("https://a.tw/x"), (e) => e instanceof FetchError && e.status === 503);
 });
+
+test("getPage reports the final URL after redirects", async () => {
+  const f = fakeFetch(() => {
+    const r = new Response("<html></html>", { status: 200 });
+    Object.defineProperty(r, "url", { value: "https://www.snes.tp.edu.tw/nss/p/index" });
+    return r;
+  });
+  const http = createHttp({ fetchImpl: f.impl, sleep: async () => {} });
+  const page = await http.getPage("https://web.snes.tp.edu.tw/");
+  assert.equal(page.url, "https://www.snes.tp.edu.tw/nss/p/index");
+  assert.equal(page.text, "<html></html>");
+});

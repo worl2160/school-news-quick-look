@@ -31,13 +31,15 @@ export function createHttp({ fetchImpl = fetch, minGapMs = 1000, timeoutMs = 200
       throw new FetchError(`${url}: ${e.name === "TimeoutError" ? "timed out" : e.message}`);
     }
     if (!res.ok) throw new FetchError(`${url}: HTTP ${res.status}`, res.status);
-    return res.text();
+    return { url: res.url || url, text: await res.text() };
   }
 
   return {
-    getText: (url) => request(url, { method: "GET", headers: {} }),
+    getText: async (url) => (await request(url, { method: "GET", headers: {} })).text,
+    /** Like getText, plus the URL the page was finally served from after redirects. */
+    getPage: (url) => request(url, { method: "GET", headers: {} }),
     async postJson(url, body) {
-      const text = await request(url, {
+      const { text } = await request(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

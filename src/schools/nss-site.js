@@ -33,13 +33,13 @@ export function siteUpath(siteData) {
   return (siteData && siteData.siteSet && siteData.siteSet.upath) || "main";
 }
 
-/** The home page's primary announcement board, or null when it has none. */
-export function pickBoard(deployMap) {
+/** The home page's announcement boards, most likely primary first. */
+export function rankBoards(deployMap) {
   const name = (m) => (m.setting && m.setting.name) || "";
   // Name first (an announcements-like name wins, a side-topic name loses), then the newer
   // module type, then the order on the page.
   const rank = (m) => [
-    /媒體|榮譽|研習|人事|學籍|文件|防疫/.test(name(m)),
+    /媒體|榮譽|研習|人事|學籍|文件|防疫|甄聘|徵才/.test(name(m)),
     !/公告|消息|布告|公布|公佈|快訊|訊息|新聞/.test(name(m)),
     m.mid !== NEW_BOARD,
     (m.setting && m.setting.seq) ?? 99,
@@ -53,7 +53,33 @@ export function pickBoard(deployMap) {
   const candidates = (deployMap || [])
     .filter((m) => m.anchor !== "recycle" && !m.destroy && (m.mid === NEW_BOARD || m.mid === OLD_BOARD))
     .sort(cmp);
-  if (!candidates.length) return null;
-  const best = candidates[0];
-  return { mid: best.mid, sid: best.sid, board_name: name(best).trim() || "公告" };
+  return candidates.map((m) => ({ mid: m.mid, sid: m.sid, board_name: name(m).trim() || "公告" }));
+}
+
+/** The home page's primary announcement board by name and position alone, or null. */
+export function pickBoard(deployMap) {
+  return rankBoards(deployMap)[0] || null;
+}
+
+const FRESH_MS = 60 * 24 * 60 * 60 * 1000;
+
+/**
+ * Among ranked boards, the first whose newest post is under 60 days old; else the one
+ * updated most recently; else (nothing readable) the top-ranked one.
+ * `newestOf(board)` resolves to an ISO time or null.
+ */
+export async function chooseBoard(ranked, newestOf, now) {
+  let latest = null;
+  for (const board of ranked) {
+    let newest = null;
+    try {
+      newest = await newestOf(board);
+    } catch {
+      continue;
+    }
+    if (!newest) continue;
+    if (now - new Date(newest) < FRESH_MS) return board;
+    if (!latest || newest > latest.newest) latest = { board, newest };
+  }
+  return latest ? latest.board : ranked[0] || null;
 }
