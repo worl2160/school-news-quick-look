@@ -24,8 +24,9 @@ function latest(items) {
 /**
  * Fetch every school in order. Once `clock()` passes `deadline`, the remaining schools are
  * not fetched: they keep their previous data and are marked stale, so the run still deploys.
+ * Each school's tags (from the school list) go into its file with their `tagTexts`.
  */
-export async function runAll({ schools, previous, adapters, http, now, deadline = Infinity, clock = Date.now }) {
+export async function runAll({ schools, previous, adapters, http, now, deadline = Infinity, clock = Date.now, tagTexts = {} }) {
   const nowIso = toTaipeiIso(now.getTime());
   const files = new Map();
   const entries = [];
@@ -63,6 +64,7 @@ export async function runAll({ schools, previous, adapters, http, now, deadline 
       last_success_at: file.last_success_at,
       last_attempt_at: nowIso,
       error: file.error,
+      tags: (s.tags || []).map((name) => ({ name, text: tagTexts[name] || "" })),
       items: file.items,
     });
     entries.push({

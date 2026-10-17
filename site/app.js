@@ -217,6 +217,7 @@ async function renderSchool(code) {
       h("span", { class: "grow" }, fresh ? ["上次之後有 ", h("strong", {}, `${fresh} 則新公告`)] : "沒有新公告"),
       fresh ? h("button", { class: "plain", type: "button", onclick: () => { store.markRead(code, f.items.map((i) => i.id)); renderSchool(code); } }, "全部標為已讀") : null),
     f.items.length ? list : h("p", { class: "note" }, "目前沒有公告。"),
+    ...(f.tags || []).filter((t) => t.text).map((t) => h("p", { class: "note tag-note" }, t.text)),
     h("p", { class: "note" }, safeUrl(f.school.url) ? h("a", { href: safeUrl(f.school.url), target: "_blank", rel: "noopener noreferrer" }, "前往學校官網") : null),
   );
 }

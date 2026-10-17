@@ -1099,7 +1099,10 @@
     "heading": "一般消息",
     "board_name": "一般消息"
    },
-   "status": "ok"
+   "status": "ok",
+   "tags": [
+    "limit"
+   ]
   },
   {
    "code": "381602",
