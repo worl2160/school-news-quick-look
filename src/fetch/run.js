@@ -83,24 +83,31 @@ export async function writeOutput(dir, { index, files }) {
 
 /**
  * The live site's data as it is: index plus every school file it lists (unsupported
- * schools have none). Null when the index or any listed file cannot be read, so the
- * caller fetches instead of deploying a site with holes.
+ * schools have none). Each file gets one retry. Null when the index or any listed file
+ * still cannot be read, so the caller fetches instead of deploying a site with holes;
+ * `log` hears which file and why.
  */
-export async function loadPublished(baseUrl, http) {
-  let index;
-  try {
-    index = JSON.parse(await http.getText(`${baseUrl}/index.json`));
-  } catch {
-    return null;
-  }
+export async function loadPublished(baseUrl, http, log = () => {}) {
+  const read = async (name) => {
+    try {
+      return JSON.parse(await http.getText(`${baseUrl}/${name}`));
+    } catch {
+      try {
+        return JSON.parse(await http.getText(`${baseUrl}/${name}`));
+      } catch (e) {
+        log(`${name}: ${e.message}`);
+        return undefined;
+      }
+    }
+  };
+  const index = await read("index.json");
+  if (!index) return null;
   const files = new Map();
   for (const s of index.schools || []) {
     if (s.status === "unsupported") continue;
-    try {
-      files.set(s.code, JSON.parse(await http.getText(`${baseUrl}/${s.code}.json`)));
-    } catch {
-      return null;
-    }
+    const file = await read(`${s.code}.json`);
+    if (!file) return null;
+    files.set(s.code, file);
   }
   return { index, files };
 }

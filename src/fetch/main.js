@@ -22,7 +22,8 @@ if (!values.out) {
 }
 
 if (values.reuse && values.base) {
-  const live = await loadPublished(values.base, createHttp({ minGapMs: 0 }));
+  const why = [];
+  const live = await loadPublished(values.base, createHttp({ minGapMs: 0 }), (m) => why.push(m));
   if (live) {
     await writeOutput(values.out, live);
     const line = `reused live data: ${live.files.size} school files, generated ${live.index.generated_at}`;
@@ -30,7 +31,9 @@ if (values.reuse && values.base) {
     if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, line + "\n");
     process.exit(0);
   }
-  console.log("live data incomplete or missing; fetching the schools instead");
+  const line = `live data incomplete or missing (${why.join("; ") || "unknown"}); fetching the schools instead`;
+  console.log(line);
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, line + "\n");
 }
 
 let schools;

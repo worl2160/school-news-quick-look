@@ -151,3 +151,23 @@ test("loadPublished gives null when the live index or a listed file is missing",
   };
   assert.equal(await loadPublished("https://x.github.io/app/data", half), null);
 });
+
+test("loadPublished retries a file once and reports why it gave up", async () => {
+  const tries = new Map();
+  const http = {
+    getText: async (url) => {
+      const name = url.split("/").pop();
+      tries.set(name, (tries.get(name) || 0) + 1);
+      if (name === "index.json") return JSON.stringify({ schools: [{ code: "A", status: "ok" }, { code: "B", status: "ok" }] });
+      if (name === "A.json" && tries.get(name) === 1) throw new Error("socket hang up");
+      if (name === "B.json") throw new Error("HTTP 503");
+      return "{}";
+    },
+  };
+  const reasons = [];
+  const got = await loadPublished("https://x.github.io/app/data", http, (m) => reasons.push(m));
+  assert.equal(got, null);
+  assert.equal(tries.get("A.json"), 2);
+  assert.equal(tries.get("B.json"), 2);
+  assert.deepEqual(reasons, ["B.json: HTTP 503"]);
+});
