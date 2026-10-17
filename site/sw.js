@@ -1,6 +1,6 @@
 // Offline copy of the app, fresh data when online, and the optional background check.
 import { findNews, newsMessage } from "./check.js";
-import { idbGet } from "./idb.js";
+import { idbGet, idbSet } from "./idb.js";
 
 // The deploy workflow replaces __BUILD__ with the commit, so every deploy installs a new worker.
 const CACHE = "snql-__BUILD__";
@@ -45,12 +45,17 @@ self.addEventListener("periodicsync", (e) => {
       const found = await findNews({
         followed: (await idbGet("followed")) || [],
         readIds: async (code) => new Set((await idbGet(`read:${code}`)) || []),
+        notifiedIds: async (code) => new Set((await idbGet(`notified:${code}`)) || []),
         fetchJson: async (path) => {
           const res = await fetch(new URL(`data/${path}`, self.registration.scope), { cache: "no-cache" });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           return res.json();
         },
       });
+      for (const f of found) {
+        const before = (await idbGet(`notified:${f.code}`)) || [];
+        await idbSet(`notified:${f.code}`, [...before, ...f.ids].slice(-500));
+      }
       if (found.length) {
         await self.registration.showNotification("校訊即時通", { body: newsMessage(found), tag: "news", icon: "icons/icon-192.png" });
       }

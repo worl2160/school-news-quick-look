@@ -15,7 +15,7 @@ test("findNews reports unread counts per followed school and skips failures", as
       return files[path];
     },
   });
-  assert.deepEqual(got, [{ code: "313601", name: "松山國小", count: 2 }]);
+  assert.deepEqual(got, [{ code: "313601", name: "松山國小", count: 2, ids: ["b", "c"] }]);
 });
 
 test("notification text names the school and the count", async () => {
@@ -25,4 +25,14 @@ test("notification text names the school and the count", async () => {
     newsMessage([{ name: "松山國小", count: 2 }, { name: "古亭國小", count: 1 }]),
     "松山國小 有 2 則新公告、古亭國小 有 1 則新公告",
   );
+});
+
+test("findNews leaves out posts already notified and returns the ids it counted", async () => {
+  const got = await findNews({
+    followed: ["313601"],
+    readIds: async () => new Set(["a"]),
+    notifiedIds: async () => new Set(["b"]),
+    fetchJson: async () => ({ school: { name: "松山國小" }, items: [{ id: "a" }, { id: "b" }, { id: "c" }] }),
+  });
+  assert.deepEqual(got, [{ code: "313601", name: "松山國小", count: 1, ids: ["c"] }]);
 });

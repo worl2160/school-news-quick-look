@@ -1,12 +1,14 @@
 // Shared by the page and the service worker: which followed schools have unread posts.
-export async function findNews({ followed, readIds, fetchJson }) {
+// Counts only posts that are unread and not yet announced in an earlier notification.
+export async function findNews({ followed, readIds, notifiedIds = async () => new Set(), fetchJson }) {
   const found = [];
   for (const code of followed) {
     try {
       const f = await fetchJson(`${code}.json`);
       const read = await readIds(code);
-      const count = f.items.filter((i) => !read.has(i.id)).length;
-      if (count) found.push({ code, name: f.school.name, count });
+      const told = await notifiedIds(code);
+      const ids = f.items.filter((i) => !read.has(i.id) && !told.has(i.id)).map((i) => i.id);
+      if (ids.length) found.push({ code, name: f.school.name, count: ids.length, ids });
     } catch {
       // unreachable school file: say nothing about it
     }
