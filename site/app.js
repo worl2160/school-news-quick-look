@@ -16,6 +16,7 @@ const store = {
   follow(code) { local.follow(code); idbSet("followed", local.followed()); },
   unfollow(code) { local.unfollow(code); idbSet("followed", local.followed()); },
   markRead(code, ids) { local.markRead(code, ids); idbSet(`read:${code}`, [...local.readIds(code)]); },
+  ensureBaseline(code, items) { local.ensureBaseline(code, items); idbSet(`read:${code}`, [...local.readIds(code)]); },
 };
 const view = document.getElementById("view");
 const titleEl = document.getElementById("title");
@@ -71,7 +72,7 @@ function setHeader(title, subtitle, back) {
 }
 
 function show(...nodes) {
-  view.replaceChildren(...nodes);
+  view.replaceChildren(...nodes.filter((n) => n != null && n !== false));
   window.scrollTo(0, 0);
 }
 
@@ -101,6 +102,7 @@ function followedSection(byCode) {
     if (s.status !== "unsupported") {
       loadSchool(code)
         .then((f) => {
+          store.ensureBaseline(code, f.items);
           const n = store.newCount(code, f.items);
           badge.replaceWith(n ? h("span", { class: "badge" }, `${n} 則新`) : h("span", { class: "note" }, "已讀"));
         })
@@ -195,6 +197,7 @@ async function renderSchool(code) {
   const f = await loadSchool(code, true);
   setHeader(s.name, `${f.board.name || "公告"}・資料更新於 ${stamp(f.last_success_at) || "—"}`, "#/");
 
+  store.ensureBaseline(code, f.items);
   const read = store.readIds(code);
   const fresh = f.items.filter((i) => !read.has(i.id)).length;
   const list = h("ul", { class: "cards" });

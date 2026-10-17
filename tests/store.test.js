@@ -55,3 +55,11 @@ test("store starts when reading localStorage itself throws", () => {
     else delete globalThis.localStorage;
   }
 });
+
+test("the first look at a school takes the current posts as the baseline", () => {
+  const s = createStore(memoryStorage());
+  s.ensureBaseline("313601", items);
+  assert.equal(s.newCount("313601", items), 0);
+  s.ensureBaseline("313601", [{ id: "nss:z" }, ...items]);
+  assert.equal(s.newCount("313601", [{ id: "nss:z" }, ...items]), 1);
+});

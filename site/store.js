@@ -47,6 +47,10 @@ export function createStore(given) {
       const merged = [...new Set([...load(READ(code), []), ...ids])];
       save(READ(code), merged.slice(-READ_KEEP));
     },
+    /** First time this phone sees a school: everything on it now counts as already seen. */
+    ensureBaseline(code, items) {
+      if (load(READ(code), null) === null) save(READ(code), items.map((i) => i.id).slice(-READ_KEEP));
+    },
     newCount(code, items) {
       const read = new Set(load(READ(code), []));
       return items.filter((i) => !read.has(i.id)).length;
