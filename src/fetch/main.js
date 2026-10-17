@@ -34,7 +34,10 @@ const now = new Date();
 const previous = values.base
   ? await loadPrevious(values.base, schools.map((s) => s.code), createHttp({ minGapMs: 0 }))
   : new Map();
-const result = await runAll({ schools, previous, adapters, http: createHttp(), now });
+// Stop starting new schools after 20 minutes so a hung school network cannot outlast the
+// 30-minute job and block the deploy.
+const deadline = Date.now() + 20 * 60 * 1000;
+const result = await runAll({ schools, previous, adapters, http: createHttp(), now, deadline });
 await writeOutput(values.out, result);
 
 const count = (status) => result.index.schools.filter((s) => s.status === status).length;

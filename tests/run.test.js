@@ -100,3 +100,23 @@ test("loadPrevious skips schools that 404", async () => {
   const prev = await loadPrevious("https://x.github.io/app/data", ["A", "B"], http);
   assert.deepEqual([...prev.keys()], ["A"]);
 });
+
+test("schools left when the run deadline passes keep old data and are marked stale", async () => {
+  let t = 0;
+  const old = { items: [item("o", "2026-10-01T08:00:00+08:00")], last_success_at: "2026-10-16T10:05:00+08:00" };
+  let fetched = [];
+  const { index, files } = await runAll({
+    schools: [school("A"), school("B"), school("C")],
+    previous: new Map([["C", old]]),
+    adapters: { fake: async (s) => { fetched.push(s.code); t += 600; return []; } },
+    http: {},
+    now: NOW,
+    deadline: 1000,
+    clock: () => t,
+  });
+  assert.deepEqual(fetched, ["A", "B"]);
+  const c = files.get("C");
+  assert.equal(c.error, "skipped: run deadline");
+  assert.deepEqual(c.items, old.items);
+  assert.equal(index.schools.find((s) => s.code === "C").status, "stale");
+});

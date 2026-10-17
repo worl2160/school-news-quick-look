@@ -21,7 +21,11 @@ function latest(items) {
   return items.reduce((max, i) => (i.published_at && (!max || i.published_at > max) ? i.published_at : max), null);
 }
 
-export async function runAll({ schools, previous, adapters, http, now }) {
+/**
+ * Fetch every school in order. Once `clock()` passes `deadline`, the remaining schools are
+ * not fetched: they keep their previous data and are marked stale, so the run still deploys.
+ */
+export async function runAll({ schools, previous, adapters, http, now, deadline = Infinity, clock = Date.now }) {
   const nowIso = toTaipeiIso(now.getTime());
   const files = new Map();
   const entries = [];
@@ -42,6 +46,7 @@ export async function runAll({ schools, previous, adapters, http, now }) {
     const old = previous.get(s.code);
     let file;
     try {
+      if (clock() >= deadline) throw new Error("skipped: run deadline");
       const items = await adapter(s, http, now);
       file = { items, last_success_at: nowIso, error: null };
     } catch (e) {
