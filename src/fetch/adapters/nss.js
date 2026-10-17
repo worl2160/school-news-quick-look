@@ -19,6 +19,16 @@ export function isEffectiveTop(data, now) {
   return false;
 }
 
+/** An absolute http(s) URL, or null for anything else (javascript:, data:, unparsable). */
+function webUrl(url, base) {
+  try {
+    const abs = absolutize(url, base);
+    return /^https?:$/.test(new URL(abs).protocol) ? abs : null;
+  } catch {
+    return null;
+  }
+}
+
 /** One NSS storage row as a unified item (not yet marked pinned). */
 export function toItem(row, ctx) {
   const d = row.data || {};
@@ -33,7 +43,8 @@ export function toItem(row, ctx) {
     content_html: sanitizeContent(d.content || "", ctx.host),
     attachments: (d.ext || [])
       .filter((a) => a && a.url)
-      .map((a) => ({ name: a.name || a.url, url: absolutize(a.url, ctx.host) })),
+      .map((a) => ({ name: a.name || a.url, url: webUrl(a.url, ctx.host) }))
+      .filter((a) => a.url),
     source_url: `${ctx.host}/nss/${ctx.upath}/freeze/${ctx.mid}/${ctx.sid}/${row._id}`,
   };
 }
@@ -42,13 +53,14 @@ export function toItem(row, ctx) {
 export function mergeItems(topRows, regularRows, ctx, now) {
   const byNewest = (a, b) => (b.published_at || "").localeCompare(a.published_at || "");
   const pins = topRows
-    .filter((r) => r.data && r.data.top && isEffectiveTop(r.data, now))
+    .filter((r) => r && r._id && r.data && r.data.top && isEffectiveTop(r.data, now))
     .map((r) => ({ ...toItem(r, ctx), pinned: true }))
     .sort(byNewest);
   const pinned = new Set(pins.map((p) => p.id));
   const seen = new Set();
   const regular = [];
   for (const r of regularRows) {
+    if (!r || !r._id) continue;
     const item = toItem(r, ctx);
     if (pinned.has(item.id) || seen.has(item.id)) continue;
     seen.add(item.id);

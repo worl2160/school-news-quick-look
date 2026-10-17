@@ -76,3 +76,27 @@ test("merge puts effective pins first, drops duplicates, keeps 30 regular newest
   assert.ok(rest.every((i) => i.pinned === false));
   for (let i = 1; i < rest.length; i++) assert.ok(rest[i - 1].published_at >= rest[i].published_at);
 });
+
+test("attachments and links with non-http schemes are dropped", () => {
+  const item = toItem(
+    {
+      _id: "z",
+      data: {
+        name: "x",
+        stime: ms("2026-10-16T08:00:00+08:00"),
+        ext: [
+          { name: "evil", url: "javascript:alert(document.domain)" },
+          { name: "data", url: "data:text/html,<script>1</script>" },
+          { name: "ok.pdf", url: "/uploads/ok.pdf" },
+        ],
+      },
+    },
+    CTX,
+  );
+  assert.deepEqual(item.attachments, [{ name: "ok.pdf", url: "https://www.ssps.tp.edu.tw/uploads/ok.pdf" }]);
+});
+
+test("rows without an id are skipped", () => {
+  const items = mergeItems([], [{ data: { name: "a", stime: 1 } }, row("ok", "05")], CTX, at("2026-10-17T00:00:00+08:00"));
+  assert.deepEqual(items.map((i) => i.id), ["nss:ok"]);
+});

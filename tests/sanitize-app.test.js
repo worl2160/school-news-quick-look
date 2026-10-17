@@ -20,3 +20,13 @@ test("app sanitizer drops what the fetch side would", () => {
   assert.ok(out.includes('href="https://s.tw/f.pdf"'), out);
   assert.ok(out.includes('src="https://s.tw/i.png"'), out);
 });
+
+import { safeUrl } from "../site/sanitize.js";
+
+test("safeUrl only passes http, https and mailto URLs", () => {
+  assert.equal(safeUrl("https://s.tw/f.pdf"), "https://s.tw/f.pdf");
+  assert.equal(safeUrl(" javascript:alert(1)"), null);
+  assert.equal(safeUrl("java\tscript:alert(1)"), null);
+  assert.equal(safeUrl("data:text/html,x"), null);
+  assert.equal(safeUrl(undefined), null);
+});

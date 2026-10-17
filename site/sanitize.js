@@ -7,6 +7,11 @@ const TAGS = new Set([
 const ATTRS = { A: ["href"], IMG: ["src", "alt"], TD: ["colspan", "rowspan"], TH: ["colspan", "rowspan"] };
 const SAFE_URL = /^(https?:|mailto:)/i;
 
+/** The URL itself when it is http, https or mailto; otherwise null. Use for every href built from data. */
+export function safeUrl(url) {
+  return typeof url === "string" && SAFE_URL.test(url) ? url : null;
+}
+
 function copy(node, doc) {
   if (node.nodeType === 3) return doc.createTextNode(node.nodeValue);
   if (node.nodeType !== 1) return null;

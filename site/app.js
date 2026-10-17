@@ -3,7 +3,7 @@
 //   #/s/<code>         one school's announcements
 //   #/s/<code>/<id>    one announcement
 import { createStore } from "./store.js";
-import { cleanHtml } from "./sanitize.js";
+import { cleanHtml, safeUrl } from "./sanitize.js";
 import { idbSet } from "./idb.js";
 
 const DATA = "./data/";
@@ -192,7 +192,7 @@ async function renderSchool(code) {
       h("span", { class: "grow" }, fresh ? ["上次之後有 ", h("strong", {}, `${fresh} 則新公告`)] : "沒有新公告"),
       fresh ? h("button", { class: "plain", type: "button", onclick: () => { store.markRead(code, f.items.map((i) => i.id)); renderSchool(code); } }, "全部標為已讀") : null),
     f.items.length ? list : h("p", { class: "note" }, "目前沒有公告。"),
-    h("p", { class: "note" }, h("a", { href: f.school.url, target: "_blank", rel: "noopener noreferrer" }, "前往學校官網")),
+    h("p", { class: "note" }, safeUrl(f.school.url) ? h("a", { href: safeUrl(f.school.url), target: "_blank", rel: "noopener noreferrer" }, "前往學校官網") : null),
   );
 }
 
@@ -213,9 +213,9 @@ async function renderPost(code, id) {
       content,
       i.attachments.length
         ? h("section", {}, h("h2", {}, "附件(連到學校官網原檔)"),
-            h("ul", { class: "files" }, i.attachments.map((a) => h("li", {}, h("a", { href: a.url, target: "_blank", rel: "noopener noreferrer" }, a.name)))))
+            h("ul", { class: "files" }, i.attachments.filter((a) => safeUrl(a.url)).map((a) => h("li", {}, h("a", { href: safeUrl(a.url), target: "_blank", rel: "noopener noreferrer" }, a.name)))))
         : null,
-      h("a", { class: "primary", href: i.source_url, target: "_blank", rel: "noopener noreferrer" }, "在學校官網開啟原文")),
+      safeUrl(i.source_url) ? h("a", { class: "primary", href: safeUrl(i.source_url), target: "_blank", rel: "noopener noreferrer" }, "在學校官網開啟原文") : null),
   );
 }
 
