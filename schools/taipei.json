@@ -289,9 +289,12 @@
    "district": "大安區",
    "type": "private",
    "url": "https://www.hmps.tp.edu.tw",
-   "adapter": null,
-   "params": null,
-   "status": "unsupported"
+   "adapter": "x-iweb",
+   "params": {
+    "list_path": "/news1",
+    "board_name": "最新資訊"
+   },
+   "status": "ok"
   },
   {
    "code": "333601",
